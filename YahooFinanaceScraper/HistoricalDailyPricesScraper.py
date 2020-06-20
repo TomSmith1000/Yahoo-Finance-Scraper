@@ -12,9 +12,10 @@ for symbol in symbols:
     try:
         df = pd.read_csv(url)  
         df.head()
-        df.to_csv('Historical Data/'+ symbol+'.csv', index=False)
+        df.to_csv('HistoricalData/'+ symbol+'.csv', index=False)
         successful_requests.append(symbol)
-    except:
+    except Exception as e:
+        print(e)
         failed_requests.append(symbol)
         print("Request Failed")
         continue
